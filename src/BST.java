@@ -14,13 +14,12 @@ class Node {
 
 public class BST {
     // print bst
-    void printTree(Node node, String prefix)
-    {
+    void printTree(Node node, String prefix)    {
         if(node == null) return;
 
-        System.out.println(prefix + " + " + node.data);
-        printTree(node.left , prefix + " ");
-        printTree(node.right , prefix + " ");
+        System.out.println(prefix + " + root: " + node.data);
+        printTree(node.left , prefix + " left child : " );
+        printTree(node.right , prefix + "right child:  ");
     }
 
     // find inorder successor
@@ -99,7 +98,6 @@ public class BST {
                 current = current.right;
             }
         }
-
         // Node not found
         if (current == null) {
             System.out.println("no value find");
@@ -108,7 +106,7 @@ public class BST {
 
         //Case1: delete leaf node
         else if (current.left == null && current.right == null) {
-            System.out.println("value to be deleted is " + current.data + "parent is " + parent.data + " root is " + rootNode.data);
+            System.out.println("leaf to be deleted is " + current.data + "parent is " + parent.data + " root is " + rootNode.data);
             if (current != rootNode) {
                 current.data = null;
                 parent.left = null;
@@ -121,19 +119,17 @@ public class BST {
         // Case2: delete node with two childs
         else if ((current.left != null && current.right != null)) {
             System.out.println("node has two child");
-
             // find its inorder successor node
             Node successor = getMinimumKey(current.right);
-
             // store successor value
             int val = successor.data;
-
             // recursively delete the successor.
             //Successor will have at most one child (right child)
             deleteNode(rootNode, successor.data);
 
             // copy value of the successor to the current node
             current.data = val;
+            return true;
         }
 
         // Case 3: Delete node with single child
@@ -142,6 +138,7 @@ public class BST {
             if (current != rootNode) {
                 if (current == parent.left) {
                     parent.left = child;
+                    return true;
                 } else parent.right = child;
             } else rootNode = child;
         }
@@ -173,7 +170,7 @@ class Main {
                             break;
                         case "2":
                             do {
-                                System.out.println(" Please select  \n1.Search Node\n2.Delete Node ");
+                                System.out.println(" Please select  \n1.Search Node\n2.Delete Node\n3.Print node ");
                                 choice = input.next();
                                 switch (choice) {
                                     case "1":
@@ -187,6 +184,8 @@ class Main {
                                         bst.deleteNode(currentRoot, nodeValue);
                                         BST.inorder(currentRoot);
                                         break;
+                                    case "3":
+                                        bst.printTree(currentRoot,"");
                                     default:
                                         System.out.println("incorrect value was entered \n");
                                 }
