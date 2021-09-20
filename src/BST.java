@@ -137,13 +137,13 @@ public class BST {
             else {
                 Node child = (current.left != null) ? current.left : current.right;
 
-
                 if (current != rootNode) if (current == parent.left) parent.left = child;
                 else parent.right = child;
                 else rootNode = child;
+                System.out.println("\n \t \t=====>Deletion successful<===== \n");
+                System.out.println("new node in old node place : "+ child.data ) ;
             }
         }
-        System.out.println("\n \t \t=====>Deletion successful<===== \n");
         return rootNode;
     }
 }
