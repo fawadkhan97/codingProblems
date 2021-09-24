@@ -5,7 +5,7 @@ public class FindPairs {
     // we will only check check right and bottom as we traverse
 
 
-    void findPairs(int arr[][]) {
+    void findPairs(int arr[][])  {
 
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -14,18 +14,44 @@ public class FindPairs {
 
                 System.out.print(arr[i][j] + " ,");
 
-                try {
-                    // check on right side
-                    if (arr[i][j] == 0 && arr[i][j + 1] == 0) {
-                        count++;
 
+                if (arr[i][j] == 0) {
+                    try {
+                        // check on right side
+                        if (arr[i][j + 1] == 0) {
+                            count++;
+
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.print(".");
                     }
-                    //check on bottom pair
-                    if (arr[i][j] == 0 && arr[i + 1][j] == 0) {
-                        count++;
+                    try {
+                        //check on bottom pair
+                        if (arr[i + 1][j] == 0) {
+                            count++;
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.print(".");
                     }
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.print(".");
+/*
+                    try {
+                        //check on left pair
+                        if (arr[i][j - 1] == 0) {
+                            count++;
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.print(".");
+                    }
+                    try {
+                        // check on top pair
+                        if (arr[i - 1][j] == 0) {
+                            count++;
+
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.print(".");
+                    }
+*/
                 }
 
 
@@ -34,7 +60,7 @@ public class FindPairs {
 
         }
 
-        System.out.println("count is  " + count);
+        System.out.println("Pairs count is  " + count);
 
     }
 
@@ -43,7 +69,7 @@ public class FindPairs {
 
         FindPairs obj = new FindPairs();
 
-        int[][] arr = {{0, 0, 1}, {0, 0, 0}, {0, 0, 0}};
+        int[][] arr = {{0, 0, 1}, {0, 0, 0}, {0, 0, 1}};
 
         obj.findPairs(arr);
 

@@ -27,7 +27,6 @@ public class BST {
     // find inorder successor
     public static void inorder(Node rootNode) {
         if (rootNode == null) return;
-
         inorder(rootNode.left);
         System.out.print(rootNode.data + " ");
         inorder(rootNode.right);
@@ -55,14 +54,16 @@ public class BST {
         // insert into left subtree
         else if (a < rootNode.data) {
             rootNode.left = insertNode(rootNode.left, a);
-            System.out.println("left child created");
+           // System.out.println("left child created");
 
         }
         // insert into right subtree
-        else if (a > rootNode.data) {
+        // else if (a > rootNode.data)
+        else {
             rootNode.right = insertNode(rootNode.right, a);
-            System.out.println("right child created ");
+          //  System.out.println("right child created ");
         }
+
         return rootNode;
     }
 
@@ -76,8 +77,10 @@ public class BST {
             System.out.println("Node found  " + rootNode.data);
             return rootNode;
         }
+        // search right subtree or right child
         if (key > rootNode.data) return searchNode(rootNode.right, key);
 
+        // search left subtree or left child
         return searchNode(rootNode.left, key);
     }
 
@@ -174,11 +177,13 @@ class Main {
                             System.out.println("\n Please select  \n1.Search Node\n2.Delete Node\n3.Print node ");
                             choice = input.next();
                             switch (choice) {
+                                // search values
                                 case "1":
                                     System.out.print("\nenter value to search: ");
                                     searchkey = input.nextInt();
                                     bst.searchNode(currentRoot, searchkey);
                                     break;
+                                    // delete values
                                 case "2":
                                     System.out.print("\n enter value to delete:");
                                     nodeValue = input.nextInt();
