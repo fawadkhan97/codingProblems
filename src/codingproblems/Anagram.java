@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package codingproblems;
+
 import java.util.Arrays;
 
 public class Anagram {
@@ -19,12 +20,12 @@ public class Anagram {
 
             System.out.println("str1 is " + Arrays.toString(str1Array));
             System.out.println("str2 is " + Arrays.toString(str2Array));
-                    System.out.println("string is Anagram");
+                    System.out.println("string is codingproblems.Anagram");
             return  true;
 
         }
 
-        System.out.println("String is not Anagram ");
+        System.out.println("String is not codingproblems.Anagram ");
 
         return false;
     }

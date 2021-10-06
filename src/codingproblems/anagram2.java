@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package codingproblems;
 
 public class anagram2 {
     private static int CHARACTER_RANGE= 256;

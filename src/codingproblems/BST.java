@@ -1,3 +1,5 @@
+package codingproblems;
+
 import java.util.Scanner;
 
 class Node {
@@ -70,11 +72,11 @@ public class BST {
     // search node
     public Node searchNode(Node rootNode, int key) {
         if (rootNode == null) {
-            System.out.println("Node not found");
+            System.out.println("codingproblems.Node not found");
             return null;
         }
         if (rootNode.data == key) {
-            System.out.println("Node found  " + rootNode.data);
+            System.out.println("codingproblems.Node found  " + rootNode.data);
             return rootNode;
         }
         // search right subtree or right child
@@ -99,9 +101,9 @@ public class BST {
             // if key is greater than current node goto right subtree
             else current = current.right;
         }
-        // Node not found
+        // codingproblems.Node not found
         if (current == null) {
-            System.out.println("\n \t Node doesn't exist \n");
+            System.out.println("\n \t codingproblems.Node doesn't exist \n");
             return null;
         } else {
             //Case1: delete leaf node
@@ -131,7 +133,7 @@ public class BST {
                 // copy value of the successor to the current node
                 current.data = val;
 
-                System.out.println("\n \t Node deleted.... new parent/root is: " + val + " \n");
+                System.out.println("\n \t codingproblems.Node deleted.... new parent/root is: " + val + " \n");
 
                 return rootNode;
             }
@@ -174,7 +176,7 @@ class Main {
                         break;
                     case "2":
                         do {
-                            System.out.println("\n Please select  \n1.Search Node\n2.Delete Node\n3.Print node ");
+                            System.out.println("\n Please select  \n1.Search codingproblems.Node\n2.Delete codingproblems.Node\n3.Print node ");
                             choice = input.next();
                             switch (choice) {
                                 // search values

@@ -1,3 +1,5 @@
+package codingproblems;
+
 public class FindPairs {
 
     //problem: given 2d array find pairs of zero
