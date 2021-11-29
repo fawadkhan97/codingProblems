@@ -1,5 +1,6 @@
+package codingproblems;
 
-    import java.util.*;
+import java.util.*;
     class solution
     {
 

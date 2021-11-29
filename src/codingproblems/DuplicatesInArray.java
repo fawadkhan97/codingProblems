@@ -1,4 +1,4 @@
-
+package codingproblems;
 
 public class DuplicatesInArray {
 
